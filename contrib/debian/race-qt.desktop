@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Race
+Comment=Race P2P Cryptocurrency
+Comment[fr]=Race, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Race, eşten eşe kriptografik sanal para birimi
+Exec=race-qt %u
+Terminal=false
+Type=Application
+Icon=race128
+MimeType=x-scheme-handler/race;
+Categories=Office;Finance;

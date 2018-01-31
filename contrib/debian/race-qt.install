@@ -1,0 +1,6 @@
+usr/local/bin/race-qt usr/bin
+share/pixmaps/race32.xpm usr/share/pixmaps
+share/pixmaps/race16.xpm usr/share/pixmaps
+share/pixmaps/race128.png usr/share/pixmaps
+debian/race-qt.desktop usr/share/applications
+debian/race-qt.protocol usr/share/kde4/services/
