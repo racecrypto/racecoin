@@ -1522,13 +1522,20 @@ void MapPort(bool)
 void CConnman::ThreadDNSAddressSeed()
 {
     // goal: only query DNS seeds if address need is acute
+    // Avoiding DNS seeds when we don't need them improves user privacy by
+    //  creating fewer identifying DNS requests, reduces trust by giving seeds
+    //  less influence on the network topology, and reduces traffic to the seeds.
     if ((addrman.size() > 0) &&
         (!GetBoolArg("-forcednsseed", DEFAULT_FORCEDNSSEED))) {
         if (!interruptNet.sleep_for(std::chrono::seconds(11)))
             return;
 
         LOCK(cs_vNodes);
-        if (vNodes.size() >= 2) {
+	int nRelevant = 0;
+	for (auto pnode : vNodes) {
+		nRelevant += pnode->fSuccessfullyConnected && ((pnode->nServices & nRelevantServices) == nRelevantServices);
+	}
+	if (nRelevant >= 2) {
             LogPrintf("P2P peers available. Skipped DNS seeding.\n");
             return;
         }
@@ -1676,11 +1683,16 @@ void CConnman::ThreadOpenConnections()
         // Only connect out to one peer per network group (/16 for IPv4).
         // Do this here so we don't have to critsect vNodes inside mapAddresses critsect.
         int nOutbound = 0;
+	int nOutboundRelevant = 0;
         std::set<std::vector<unsigned char> > setConnected;
         {
             LOCK(cs_vNodes);
             BOOST_FOREACH(CNode* pnode, vNodes) {
                 if (!pnode->fInbound && !pnode->fMasternode) {
+                    // Count the peers that have all relevant services
+                    if (pnode->fSuccessfullyConnected && !pnode->fFeeler && ((pnode->nServices & nRelevantServices) == nRelevantServices)) {
+                        nOutboundRelevant++;
+                    }
                     setConnected.insert(pnode->addr.GetGroup());
                     nOutbound++;
                 }
@@ -1738,11 +1750,28 @@ void CConnman::ThreadOpenConnections()
             if (nANow - addr.nLastTry < 600 && nTries < 30)
                 continue;
 
+	    // only consider nodes missing relevant services after 40 failed attempts
+	    //  and only if less than half the outbound are up.
+	    ServiceFlags nRequiredServices = nRelevantServices;
+	    if (nTries >= 40 && nOutbound < (nMaxOutbound >> 1)) {
+                nRequiredServices = REQUIRED_SERVICES;
+            }
+            if ((addr.nServices & nRequiredServices) != nRequiredServices) {
+                continue;
+            }
+
             // do not allow non-default ports, unless after 50 invalid addresses selected already
             if (addr.GetPort() != Params().GetDefaultPort() && nTries < 50)
                 continue;
 
             addrConnect = addr;
+
+	    // regardless of the services assumed to be available, only require the minimum if half or more outbound have relevant services
+	    if (nOutboundRelevant >= (nMaxOutbound >> 1)) {
+                addrConnect.nServices = REQUIRED_SERVICES;
+	    } else {
+		addrConnect.nServices = nRequiredServices;
+            }
             break;
         }
 
