@@ -117,6 +117,7 @@ share/BitcoindComparisonTool.jar
 
 !src/leveldb*/Makefile
 !depends/Makefile
+!depends/patches/*/*.patch
 
 .cproject
 .project
@@ -132,4 +133,5 @@ race-cli
 raced
 race-qt
 make
+
 
