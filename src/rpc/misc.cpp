@@ -125,19 +125,20 @@ UniValue debug(const UniValue& params, bool fHelp)
             "debug ( 0|1|addrman|alert|bench|coindb|db|lock|rand|rpc|selectcoins|mempool"
             "|mempoolrej|net|proxy|prune|http|libevent|tor|zmq|"
             "race|privatesend|instantsend|masternode|spork|keepass|mnpayments|gobject )\n"
-            "Change debug category on the fly. Specify single category or use comma to specify many.\n"
+            "Change debug category on the fly. Specify single category or use '+' to specify many.\n"
             "\nExamples:\n"
             + HelpExampleCli("debug", "race")
-            + HelpExampleRpc("debug", "race,net")
+            + HelpExampleRpc("debug", "race+net")
         );
 
     std::string strMode = params[0].get_str();
 
-    mapMultiArgs["-debug"].clear();
-    boost::split(mapMultiArgs["-debug"], strMode, boost::is_any_of(","));
-    mapArgs["-debug"] = mapMultiArgs["-debug"][mapMultiArgs["-debug"].size() - 1];
+    std::vector<std::string> newMultiArgs;
+    boost::split(newMultiArgs, strMode, boost::is_any_of("+"));
+    ForceSetMultiArgs("-debug", newMultiArgs);
+    ForceSetArg("-debug", newMultiArgs[newMultiArgs.size() - 1]);
 
-    fDebug = mapArgs["-debug"] != "0";
+    fDebug = GetArg("-debug", "") != "0";
 
     return "Debug mode: " + (fDebug ? strMode : "off");
 }
