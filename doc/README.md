@@ -1,4 +1,4 @@
-Race Core 0.12.1
+Race Core 0.12.2
 =====================
 
 This is the official reference wallet for Race digital currency and comprises the backbone of the Race peer-to-peer network. You can [download Race Core](https://github.com/racecrypto/racecoin/releases) or [build it yourself](#building) using the guides below.
