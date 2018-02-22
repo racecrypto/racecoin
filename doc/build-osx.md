@@ -40,7 +40,7 @@ NOTE: Building with Qt4 is still supported, however, doing so could result in a 
 
 1. Clone the GitHub tree to get the source code and go into the directory.
 
-        git clone https://github.com/racepay/race.git
+        git clone https://github.com/racecrypto/racecoin.git
         cd race
 
 2.  Build Race Core:
