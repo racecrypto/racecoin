@@ -143,9 +143,7 @@ public:
         assert(consensus.hashGenesisBlock == uint256S("0x00000addc7843f4febe1850ff1602af6f7fca2fc3c8cefaeceb2b9c0e5f404dd"));
         assert(genesis.hashMerkleRoot == uint256S("0xb32ff4ef0388ea536140f3083b96839ade35bbf9ba4a89ed1b42ecfa6ae3c5ca"));
         
-        vSeeds.push_back(CDNSSeedData("apac.racecrypto.com", "apac.racecrypto.com"));
         vSeeds.push_back(CDNSSeedData("emea.racecrypto.com", "emea.racecrypto.com"));
-        vSeeds.push_back(CDNSSeedData("nafta.racecrypto.com", "nafta.racecrypto.com"));
 
         // Race addresses start with 'R'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,60);
@@ -262,9 +260,7 @@ public:
         
         vFixedSeeds.clear();
         vSeeds.clear();
-        vSeeds.push_back(CDNSSeedData("test-apac.racecrypto.com", "test-apac.racecrypto.com"));
         vSeeds.push_back(CDNSSeedData("test-emea.racecrypto.com", "test-emea.racecrypto.com"));
-        vSeeds.push_back(CDNSSeedData("test-nafta.racecrypto.com", "test-nafta.racecrypto.com"));
 
         // Testnet Race addresses start with 'y'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,140);
