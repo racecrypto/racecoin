@@ -6,7 +6,7 @@
 <a href="https://github.com/racecrypto/racecoin/releases" alt="GIT Releases">
 <img src="https://img.shields.io/github/downloads/racecoin/race/total.svg"/>
 </a>
-<a href="https://discord.racecrypto.com" alt="Discord">
+<a href="https://discord.gg/knxGVP" alt="Discord">
 <img src="https://img.shields.io/discord/402827967111233546.svg"/>
   </a>
 <a href="https://twitter.racecrypto.com" alt="Twitter">
@@ -14,7 +14,7 @@
 </a>
 </p>
 <p align="center">
-  <a href="https://www.racecrypto.com">https://www.racecrypto.com</a> | <a href="https://explorer.racecrypto.com">Block Explorer</a> | <a href="https://ann.racecrypto.com">Announcement</a> | <a href="https://discord.racecrypto.com">Discord</a> | <a href="https://twitter.racecrypto.com">Twitter</a>
+  <a href="https://www.racecrypto.com">https://www.racecrypto.com</a> | <a href="http://explorer.racecurrency.com/">Block Explorer</a> | <a href="https://ann.racecrypto.com">Announcement</a> | <a href="https://discord.gg/knxGVP">Discord</a> | <a href="https://twitter.racecrypto.com">Twitter</a>
 </p>
 
 ## About Race
