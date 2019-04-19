@@ -1,3 +1,4 @@
+
 #/bin/bash
 
 # Script-Parameter ... lediglich der "Schönheit" halber
