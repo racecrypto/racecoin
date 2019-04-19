@@ -19,7 +19,7 @@
 
 ## About Race
 
-RACE offers highly secured, anonymous transactions across the world. RACE supports Masternodes with a superb block reward. Features as Private Send and Instant Send make RACE a future-oriented currency on the market. RACE uses peer-to-peer technology to operate with no central authority: managing transactions and issuing money are carried out collectively by the network. Race Core is the name of the open source software which enables the use of this currency. Race Core is based on the newest [Dash](https://www.dash.org) codebase and is its own currency.
+RACE offers highly secured, anonymous transactions across the world. RACE supports Masternodes with a good and constant block reward. Features as Private Send and Instant Send make RACE a future-oriented currency on the market. RACE uses peer-to-peer technology to operate with no central authority: managing transactions and issuing money are carried out collectively by the network. Race Core is the name of the open source software which enables the use of this currency. Race Core is based on the newest [Dash](https://www.dash.org) codebase and is its own currency.
 
 For more information, as well as an immediately useable, binary version of
 the Race Core software, see https://www.racecrypto.com
