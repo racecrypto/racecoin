@@ -14,7 +14,7 @@
 </a>
 </p>
 <p align="center">
-  <a href="https://www.racecrypto.com">https://www.racecrypto.com</a> | <a href="https://explorer.racecrypto.com">Block Explorer</a> | <a href="https://ann.racecrypto.com">Announcement</a> | <a href="https://discord.racecrypto.com">Discord</a> | <a href="https://twitter.racecrypto.com">Twitter</a>
+  <a href="https://www.racecrypto.com">https://www.racecrypto.com</a> | <a href="https://explorer.racecrypto.com">Block Explorer</a> | <a href="https://https://bitcointalk.org/index.php?topic=2848766.0">Announcement</a> | <a href="https://discord.gg/hqEwrjZ">Discord</a> | <a href="https://twitter.com/race_crypto">Twitter</a>
 </p>
 
 ## About Race
