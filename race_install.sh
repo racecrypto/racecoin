@@ -231,15 +231,15 @@ startWallet() {
 # sync wallet
 syncWallet() {
 
-	echo -e "${YELLOW}*** [STEP 10/${MAX}] *** Syncing wallet ... this can take a long time ... please be patient!\n${NONE}"
+	echo -e "${YELLOW}*** [STEP 10/${MAX}] *** Syncing wallet ... this can take a while (30 - 60 minutes) ... please be patient!\n${NONE}"
 
-    until $HOMEDIR/$COINCORE/$COINCLI mnsync status | grep -m 1 '"IsBlockchainSynced": true'; do print "`$HOMEDIR/$COINCORE/$COINCLI getblockcount` ... "; sleep 5 ; done  2> /dev/null
+    until $HOMEDIR/$COINCORE/$COINCLI mnsync status | grep -m 1 '"IsBlockchainSynced": true'; do sleep 60 ; done > /dev/null 2>&1
     echo -e "${GREEN}* ... Blockchain synced ... ${NONE}"
-    until $HOMEDIR/$COINCORE/$COINCLI mnsync status | grep -m 1 '"IsMasternodeListSynced": true'; do sleep 5 ; done > /dev/null 2>&1
+    until $HOMEDIR/$COINCORE/$COINCLI mnsync status | grep -m 1 '"IsMasternodeListSynced": true'; do sleep 10 ; done > /dev/null 2>&1
 	echo -e "${GREEN}* ... Masternodelist synced ... ${NONE}"
-    until $HOMEDIR/$COINCORE/$COINCLI mnsync status | grep -m 1 '"IsWinnersListSynced": true'; do sleep 5 ; done > /dev/null 2>&1
+    until $HOMEDIR/$COINCORE/$COINCLI mnsync status | grep -m 1 '"IsWinnersListSynced": true'; do sleep 10 ; done > /dev/null 2>&1
     echo -e "${GREEN}* ... Winnerslist synced ... ${NONE}"
-    until $HOMEDIR/$COINCORE/$COINCLI mnsync status | grep -m 1 '"IsSynced": true'; do sleep 5 ; done > /dev/null 2>&1
+    until $HOMEDIR/$COINCORE/$COINCLI mnsync status | grep -m 1 '"IsSynced": true'; do sleep 10 ; done > /dev/null 2>&1
     echo -e "${GREEN}* ... OK, done. ${NONE} \n"
 
 }
